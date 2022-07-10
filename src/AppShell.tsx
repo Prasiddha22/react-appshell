@@ -28,24 +28,14 @@ export const AppShell = ({ navbarFullWidth = true }: Props) => {
   }, []);
 
   return (
-    <div style={{ height: '100vh' }}>
-      {navbarFullWidth && <Navbar navContent={<></>} ref={navRef} />}
-      <div style={{ display: 'flex' }}>
-        <Sidebar style={{ top }} />
-        <div>
-          {!navbarFullWidth && <Navbar navContent={<></>} ref={navRef} />}
+    <toggleContext.Provider value={{ open, setOpen }}>
+      <div style={{ height: '100vh' }}>
+        {navbarFullWidth && <Navbar navContent={<></>} ref={navRef} />}
+        <div style={{ display: 'flex' }}>
+          <Sidebar style={{ top }} />
           <div>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-              possimus asperiores sequi autem ab nobis voluptatum ex placeat
-              nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-              facilis repellat quos dolorem.
-            </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-              possimus asperiores sequi autem ab nobis voluptatum ex placeat
-              nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-              facilis repellat quos dolorem.
+            {!navbarFullWidth && <Navbar navContent={<></>} ref={navRef} />}
+            <div>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
                 possimus asperiores sequi autem ab nobis voluptatum ex placeat
@@ -57,113 +47,125 @@ export const AppShell = ({ navbarFullWidth = true }: Props) => {
                 possimus asperiores sequi autem ab nobis voluptatum ex placeat
                 nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
                 facilis repellat quos dolorem.
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
+                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
+                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
+                  libero facilis repellat quos dolorem.
+                </p>
               </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-            </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </toggleContext.Provider>
   );
 };
