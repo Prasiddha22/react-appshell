@@ -1,23 +1,48 @@
-import React, { useImperativeHandle, useRef } from 'react';
+import React, {
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 
 type Props = {
   navContent: React.ReactNode;
+  toggle?: () => void;
+  navbarPosition?:
+    | 'static'
+    | 'relative'
+    | 'absolute'
+    | 'sticky'
+    | 'fixed'
+    | undefined;
 };
 
 type NavHandle = {
   getNavHeight: () => number;
+  toggleSidebar: () => void;
 };
 
 const Navbar: React.ForwardRefRenderFunction<NavHandle, Props> = (
-  { navContent },
+  { navContent, toggle, navbarPosition = 'sticky' },
   ref
 ) => {
   const navRef = useRef<HTMLDivElement>(null);
 
+  const [navHeight, setNavHeight] = useState<number>(0);
+
+  useLayoutEffect(() => {
+    setNavHeight(navRef.current?.offsetHeight ?? 0);
+  }, []);
+
   useImperativeHandle(ref, () => {
     return {
       getNavHeight: () => {
-        return navRef.current?.clientHeight || 0;
+        return navHeight;
+      },
+      toggleSidebar: () => {
+        if (toggle) {
+          toggle();
+        }
       },
     };
   });
@@ -25,7 +50,12 @@ const Navbar: React.ForwardRefRenderFunction<NavHandle, Props> = (
   return (
     <div
       ref={navRef}
-      style={{ padding: '10px 10px', position: 'sticky', top: 0 }}
+      style={{
+        position: navbarPosition,
+        top: 0,
+        width: '100%',
+        background: 'red',
+      }}
     >
       {navContent}
     </div>

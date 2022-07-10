@@ -3,169 +3,86 @@ import { Sidebar } from './Sidebar';
 
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-type ToogleProp = {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-const toggleContext = React.createContext<ToogleProp>({
-  open: false,
-  setOpen: () => {},
-});
-
-export default toggleContext;
-
+type NavHandle = React.ElementRef<typeof Navbar>;
 type Props = {
+  navbarContent?: React.ReactNode;
   navbarFullWidth?: boolean;
+  navbarPosition?:
+    | 'static'
+    | 'relative'
+    | 'absolute'
+    | 'sticky'
+    | 'fixed'
+    | undefined;
+  sidebarBackgroundColor: string;
+  sidebarHeader?: React.ReactNode;
+  sidebarContent?: React.ReactNode;
+  sidebarFooter?: React.ReactNode;
+  sidebarOpenedWidth?: number | string;
+  sidebarClosedWidth?: number | string;
+  children?: React.ReactNode;
+  sidebarTransitionDuration?: number;
+  sidebarOpen: boolean;
 };
 
-export const AppShell = ({ navbarFullWidth = true }: Props) => {
-  type NavHandle = React.ElementRef<typeof Navbar>;
+export const AppShell = ({
+  navbarContent,
+  navbarFullWidth = false,
+  navbarPosition = 'sticky',
+  sidebarBackgroundColor = '#fff',
+  sidebarHeader,
+  sidebarContent,
+  sidebarFooter,
+  sidebarOpenedWidth = '25vw',
+  sidebarClosedWidth = '0px',
+  sidebarTransitionDuration = 0.5,
+  children,
+  sidebarOpen = true,
+}: Props) => {
   const navRef = useRef<NavHandle>(null);
   const [top, setTop] = useState<number>(0);
-  useLayoutEffect(() => {
-    setTop(navRef.current?.getNavHeight() ?? 0);
-  }, []);
+  const [mounted, setMounted] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
+  useLayoutEffect(() => {
+    if (mounted) {
+      setTop(navRef.current?.getNavHeight() ?? 0);
+    } else {
+      setMounted(true);
+    }
+  }, [mounted]);
+
+  const toggleBtn = () => {
+    setToggle(!toggle);
+  };
   return (
-    <toggleContext.Provider value={{ open, setOpen }}>
-      <div style={{ height: '100vh' }}>
-        {navbarFullWidth && <Navbar navContent={<></>} ref={navRef} />}
-        <div style={{ display: 'flex' }}>
-          <Sidebar style={{ top }} />
-          <div>
-            {!navbarFullWidth && <Navbar navContent={<></>} ref={navRef} />}
-            <div>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                nam, blanditiis rerum eveniet adipisci pariatur accusamus libero
-                facilis repellat quos dolorem.
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                  possimus asperiores sequi autem ab nobis voluptatum ex placeat
-                  nam, blanditiis rerum eveniet adipisci pariatur accusamus
-                  libero facilis repellat quos dolorem.
-                </p>
-              </p>
-            </div>
-          </div>
+    <div style={{ height: '100vh' }}>
+      {navbarFullWidth && (
+        <Navbar navContent={navbarContent} ref={navRef} toggle={toggleBtn} />
+      )}
+      <div style={{ display: 'flex' }}>
+        <Sidebar
+          sidebarBackgroundColor={sidebarBackgroundColor}
+          sidebarHeader={sidebarHeader}
+          sidebarContent={sidebarContent}
+          sidebarFooter={sidebarFooter}
+          style={{
+            top,
+            width: sidebarOpen ? sidebarOpenedWidth : sidebarClosedWidth,
+            transition: `all ${sidebarTransitionDuration}s ease-in-out`,
+          }}
+        />
+        <div>
+          {!navbarFullWidth && (
+            <Navbar
+              navbarPosition={navbarPosition}
+              navContent={navbarContent}
+              toggle={toggleBtn}
+            />
+          )}
+          <div>{children}</div>
         </div>
       </div>
-    </toggleContext.Provider>
+    </div>
   );
 };
