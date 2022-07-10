@@ -27,7 +27,7 @@ const Navbar: React.ForwardRefRenderFunction<NavHandle, Props> = (
       ref={navRef}
       style={{ padding: '10px 10px', position: 'sticky', top: 0 }}
     >
-      Navbar
+      {navContent}
     </div>
   );
 };
