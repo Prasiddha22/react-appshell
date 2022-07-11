@@ -24,6 +24,7 @@ type Props = {
   children?: React.ReactNode;
   sidebarTransitionDuration?: number;
   sidebarOpen: boolean;
+  sidebarBreakpoint?: 'sm' | 'md' | 'lg' | 'xl';
 };
 
 export const AppShell = ({
@@ -39,6 +40,7 @@ export const AppShell = ({
   sidebarTransitionDuration = 0.5,
   children,
   sidebarOpen = true,
+  sidebarBreakpoint = 'sm',
 }: Props) => {
   const navRef = useRef<NavHandle>(null);
   const [top, setTop] = useState<number>(0);
@@ -57,9 +59,25 @@ export const AppShell = ({
   const toggleBtn = () => {
     setToggle(!toggle);
   };
+
+  const getBreakpointWidth = () => {
+    switch (sidebarBreakpoint) {
+      case 'sm':
+        return 576;
+      case 'md':
+        return 768;
+      case 'lg':
+        return 992;
+      case 'xl':
+        return 1200;
+      default:
+        return 576;
+    }
+  };
+
   return (
     <div style={{ height: '100vh' }}>
-      {(navbarFullWidth || windowWidth < 520) && (
+      {(navbarFullWidth || windowWidth < getBreakpointWidth()) && (
         <Navbar navContent={navbarContent} ref={navRef} toggle={toggleBtn} />
       )}
       <div style={{ display: 'flex' }}>
@@ -73,6 +91,7 @@ export const AppShell = ({
             sidebarHeader={sidebarHeader}
             sidebarContent={sidebarContent}
             sidebarFooter={sidebarFooter}
+            getBreakpointWidth={getBreakpointWidth()}
             style={{
               top,
               width: sidebarOpen ? sidebarOpenedWidth : sidebarClosedWidth,
