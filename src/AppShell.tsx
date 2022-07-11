@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import { Sidebar } from './Sidebar';
 
 import React, { useLayoutEffect, useRef, useState } from 'react';
+import { useWindowSize } from './useWindowResize';
 
 type NavHandle = React.ElementRef<typeof Navbar>;
 type Props = {
@@ -43,6 +44,7 @@ export const AppShell = ({
   const [top, setTop] = useState<number>(0);
   const [mounted, setMounted] = useState(false);
   const [toggle, setToggle] = useState(true);
+  const { width: windowWidth } = useWindowSize();
 
   useLayoutEffect(() => {
     if (mounted) {
@@ -50,14 +52,14 @@ export const AppShell = ({
     } else {
       setMounted(true);
     }
-  }, [mounted]);
+  }, [mounted, navbarFullWidth, windowWidth]);
 
   const toggleBtn = () => {
     setToggle(!toggle);
   };
   return (
     <div style={{ height: '100vh' }}>
-      {navbarFullWidth && (
+      {(navbarFullWidth || windowWidth < 520) && (
         <Navbar navContent={navbarContent} ref={navRef} toggle={toggleBtn} />
       )}
       <div style={{ display: 'flex' }}>
@@ -74,12 +76,12 @@ export const AppShell = ({
             style={{
               top,
               width: sidebarOpen ? sidebarOpenedWidth : sidebarClosedWidth,
-              transition: `all ${sidebarTransitionDuration}s ease-in-out`,
+              transition: `width ${sidebarTransitionDuration}s ease-in-out`,
             }}
           />
         </div>
         <div>
-          {!navbarFullWidth && (
+          {!navbarFullWidth && windowWidth >= 520 && (
             <Navbar
               navbarPosition={navbarPosition}
               navContent={navbarContent}
