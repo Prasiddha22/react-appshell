@@ -33,7 +33,7 @@ export const AppShell = ({
   sidebarHeader,
   sidebarContent,
   sidebarFooter,
-  sidebarOpenedWidth = '25vw',
+  sidebarOpenedWidth = '250px',
   sidebarClosedWidth = '0px',
   sidebarTransitionDuration = 0.5,
   children,
@@ -61,17 +61,23 @@ export const AppShell = ({
         <Navbar navContent={navbarContent} ref={navRef} toggle={toggleBtn} />
       )}
       <div style={{ display: 'flex' }}>
-        <Sidebar
-          sidebarBackgroundColor={sidebarBackgroundColor}
-          sidebarHeader={sidebarHeader}
-          sidebarContent={sidebarContent}
-          sidebarFooter={sidebarFooter}
-          style={{
-            top,
-            width: sidebarOpen ? sidebarOpenedWidth : sidebarClosedWidth,
-            transition: `all ${sidebarTransitionDuration}s ease-in-out`,
-          }}
-        />
+        <div
+        // style={{
+        //   width: sidebarOpen ? sidebarOpenedWidth : sidebarClosedWidth,
+        // }}
+        >
+          <Sidebar
+            sidebarBackgroundColor={sidebarBackgroundColor}
+            sidebarHeader={sidebarHeader}
+            sidebarContent={sidebarContent}
+            sidebarFooter={sidebarFooter}
+            style={{
+              top,
+              width: sidebarOpen ? sidebarOpenedWidth : sidebarClosedWidth,
+              transition: `all ${sidebarTransitionDuration}s ease-in-out`,
+            }}
+          />
+        </div>
         <div>
           {!navbarFullWidth && (
             <Navbar
