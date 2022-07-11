@@ -8,6 +8,7 @@ type Props = {
   sidebarFooter?: React.ReactNode;
   sidebarBackgroundColor?: string;
   sidebarOpenedWidth?: number | string;
+  getBreakpointWidth?: number;
 };
 
 export const Sidebar = ({
@@ -16,6 +17,7 @@ export const Sidebar = ({
   sidebarContent,
   sidebarFooter,
   sidebarBackgroundColor,
+  getBreakpointWidth = 576,
 }: Props) => {
   // const top = style?.top ?? 0
   const top = style?.top ?? 0;
@@ -26,7 +28,7 @@ export const Sidebar = ({
       style={{
         backgroundColor: sidebarBackgroundColor,
         width: width,
-        position: windowWidth < 520 ? 'fixed' : 'sticky',
+        position: windowWidth < getBreakpointWidth ? 'fixed' : 'sticky',
         left: 0,
         top: top,
         height: `calc(100vh - ${top}px)`,
