@@ -18,7 +18,7 @@ You can find the template for the App Shell at:
 https://github.com/Prasiddha22/react-appshell-tempate
 
 ```tsx
-import { AppShell } from './Components/AppShell';
+import { AppShell } from '@prasiddha/react-appshell';
 
 const App = () => {
   return (
