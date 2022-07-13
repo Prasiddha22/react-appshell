@@ -15,7 +15,7 @@ npm install @prasiddha/react-appshell --save
 With @prasiddha/react-appshell you can create a basic drawer layout instantly.
 
 You can find the template for the App Shell at:
-https://github.com/Prasiddha22/react-appshell
+https://github.com/Prasiddha22/react-appshell-tempate
 
 ```tsx
 import { AppShell } from './Components/AppShell';
