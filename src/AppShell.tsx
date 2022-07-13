@@ -6,7 +6,7 @@ import { useWindowSize } from './useWindowResize';
 
 type NavHandle = React.ElementRef<typeof Navbar>;
 type Props = {
-  navbarContent: React.ReactNode;
+  navbarContent?: React.ReactNode;
   navbarFullWidth?: boolean;
   navbarPosition?:
     | 'static'
