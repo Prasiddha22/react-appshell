@@ -6,7 +6,7 @@ import { useWindowSize } from './useWindowResize';
 
 type NavHandle = React.ElementRef<typeof Navbar>;
 type Props = {
-  navbarContent?: React.ReactNode;
+  navbarContent: React.ReactNode;
   navbarFullWidth?: boolean;
   navbarPosition?:
     | 'static'
@@ -17,11 +17,11 @@ type Props = {
     | undefined;
   sidebarBackgroundColor: string;
   sidebarHeader?: React.ReactNode;
-  sidebarContent?: React.ReactNode;
+  sidebarContent: React.ReactNode;
   sidebarFooter?: React.ReactNode;
   sidebarOpenedWidth?: number | string;
   sidebarClosedWidth?: number | string;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   sidebarTransitionDuration?: number;
   sidebarOpen: boolean;
   sidebarBreakpoint?: 'sm' | 'md' | 'lg' | 'xl';
