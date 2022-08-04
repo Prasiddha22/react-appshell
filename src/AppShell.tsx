@@ -99,7 +99,7 @@ export const AppShell = ({
             }}
           />
         </div>
-        <div>
+        <div style={{ flex: 1 }}>
           {!navbarFullWidth && windowWidth >= 520 && (
             <Navbar
               navbarPosition={navbarPosition}
