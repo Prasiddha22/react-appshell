@@ -32,6 +32,7 @@ export const Sidebar = ({
         left: 0,
         top: top,
         height: `calc(100vh - ${top}px)`,
+        zIndex: 998,
         ...style,
       }}
     >
